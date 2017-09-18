@@ -85,9 +85,7 @@
       "defaultValue": "ftp"
     }
   },
-  "variables": {
-    "azufoldervar": "[concat('/fromccvendor/', parameters('azufolder'))]"
-  },
+  "variables": {},
   "resources": [
     {
       "type": "Microsoft.Logic/workflows",
@@ -148,7 +146,7 @@
                 "method": "post",
                 "path": "/datasets/default/files",
                 "queries": {
-                  "folderPath": "[variables('azufoldervar')]",
+                  "folderPath": "[parameters('azufolder')]",
                   "name": "@triggerOutputs()['headers']['x-ms-file-name']"
                 }
               }
